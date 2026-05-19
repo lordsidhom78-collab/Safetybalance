@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محاكي مؤشر الاعتداء البيئي الصافي - وقف خيري لروح الدكتور ضياء العوضي</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;850&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Cairo', sans-serif; }
+        .zone-immunite { border-right: 6px solid #10B981; border-left: none; background-color: rgba(16, 185, 129, 0.1); }
+        .zone-modere { border-right: 6px solid #3B82F6; border-left: none; background-color: rgba(59, 130, 246, 0.1); }
+        .zone-alerte { border-right: 6px solid #F59E0B; border-left: none; background-color: rgba(245, 158, 11, 0.1); }
+        .zone-naufrage { border-right: 6px solid #EF4444; border-left: none; background-color: rgba(239, 68, 68, 0.1); }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-100 min-h-screen">
+
+    <div class="max-w-6xl mx-auto px-4 py-8">
+        <header class="border-b border-gray-800 pb-6 mb-8 text-center md:text-right">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                <div>
+                    <p class="text-xs tracking-widest text-red-500 font-bold uppercase">لا غالب إلا الله</p>
+                    <h1 class="text-3xl font-extrabold text-white mt-1">مصفوفة مؤشر الاعتداء البيئي (IAE)</h1>
+                    <p class="text-sm text-emerald-400 font-bold mt-2 flex items-center justify-center md:justify-start gap-1">
+                        <span>✨ صدقة جارية ووقف خيري إلكتروني (إلى روح الدكتور العبقري ضياء العوضي رحمة الله عليه)</span>
+                    </p>
+                </div>
+                <div class="mt-4 md:mt-0 bg-blue-950/40 border border-blue-900/60 rounded-lg px-4 py-2 text-right max-w-md">
+                    <p class="text-xs text-blue-400 font-bold mb-1">🌐 مرجعية علمية عالمية (وقف دائم)</p>
+                    <p class="text-[11px] text-gray-300 leading-relaxed">
+                        تم تطوير هذا البرنامج كعمل وقفي مستدام ومفتوح المصدر (Open Source) استناداً إلى بيانات منظمة الصحة العالمية (OMS). يتاح مجاناً بالكامل نفعاً للعباد ولروح الفقيد العزيز.
+                    </p>
+                </div>
+            </div>
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-2">
+                <p class="text-gray-400 text-sm">محاكي رقمي لاستشراف المخاطر المرضية على مدى 12 شهرًا.</p>
+                <span class="text-xs bg-gray-800 text-gray-400 px-2 py-1 rounded border border-gray-700">Licence: MIT (Open Source)</span>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <div class="lg:col-span-7 space-y-6">
+                <form id="iaeForm" class="bg-gray-900 border border-gray-800 rounded-xl p-6 shadow-2xl" onsubmit="event.preventDefault();">
+                    <h2 class="text-xl font-bold text-gray-200 border-b border-gray-800 pb-2 mb-4">🧬 عوامل التعرض للاعتداء البيئي</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">المياه في زجاجات بلاستيكية (لتر / يوم)</label>
+                            <input type="number" id="input_E" step="0.1" min="0" value="0" class="w-full bg-gray-950 border border-gray-800 rounded p-2 text-white focus:outline-none focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">الدجاج الصناعي (غرام / يوم)</label>
+                            <input type="number" id="input_P" step="10" min="0" value="0" class="w-full bg-gray-950 border border-gray-800 rounded p-2 text-white focus:outline-none focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">بيض البطاريات / الصناعي (وحدة / يوم)</label>
+                            <input type="number" id="input_O" step="1" min="0" value="0" class="w-full bg-gray-950 border border-gray-800 rounded p-2 text-white focus:outline-none focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">الحليب الصناعي (لتر / يوم)</label>
+                            <input type="number" id="input_L" step="0.1" min="0" value="0" class="w-full bg-gray-950 border border-gray-800 rounded p-2 text-white focus:outline-none focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">زبادي صناعي تسويقي (وحدة / يوم)</label>
+                            <input type="number" id="input_Y" step="1" min="0" value="0" class="w-full bg-gray-950 border border-gray-800 rounded p-2 text-white focus:outline-none focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">السكر / الخبز الأبيض الصناعي</label>
+                            <select id="input_S" class="w-full bg-gray-950 border border-gray-800 rounded p-2 text-white focus:outline-none focus:border-blue-500">
+                                <option value="0">لا (0)</option>
+                                <option value="1">نعم (1)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">التبغ / السجائر (وحدة / يوم)</label>
+                            <input type="number" id="input_T" step="1" min="0" value="0" class="w-full bg-gray-950 border border-gray-800 rounded p-2 text-white focus:outline-none focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">الكحول / الوجبات السريعة (تكرار / أسبوع)</label>
+                            <input type="number" id="input_A" step="0.1" min="0" value="0" class="w-full bg-gray-950 border border-gray-800 rounded p-2 text-white focus:outline-none focus:border-blue-500">
+                        </div>
+                    </div>
+
+                    <div class="border-t border-gray-800 pt-4 mt-4">
+                        <label class="block text-sm font-medium text-green-400 mb-1">زيت زيتون بكر ممتاز (ملعقة / يوم)</label>
+                        <input type="number" id="input_H" step="0.5" min="0" value="0" class="w-full bg-gray-950 border border-gray-800 rounded p-2 text-white focus:outline-none focus:border-blue-500">
+                    </div>
+                </form>
+
+                <div class="bg-gray-900 border border-gray-800 rounded-xl p-6 shadow-2xl">
+                    <h2 class="text-xl font-bold text-gray-200 border-b border-gray-800 pb-2 mb-4">📋 الملفات المرجعية المحددة مسبقًا</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2" id="presetsContainer"></div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5">
+                <div class="bg-gray-900 border border-gray-800 rounded-xl p-6 shadow-2xl sticky top-8">
+                    <h2 class="text-xl font-bold text-gray-200 border-b border-gray-800 pb-2 mb-4">📊 Diagnostic et Analyses Biologiques</h2>
+                    
+                    <div class="mb-6 bg-gray-950 p-4 rounded-lg border border-gray-800 text-center">
+                        <span class="text-xs uppercase tracking-wider text-gray-400 block mb-1">النتيجة الإجمالية لمؤشر IAE</span>
+                        <div id="scoreDisplay" class="text-4xl font-mono font-bold text-white">0.0</div>
+                    </div>
+
+                    <div id="zoneBox" class="p-4 rounded-lg mb-6 transition-all duration-300">
+                        <span id="zoneDescription">جاري التحميل...</span>
+                    </div>
+
+                    <div class="space-y-4 mb-6">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-400">احتمالية الإصابة بضغط الدم / أمراض القلب</span>
+                                <span id="htaPct" class="font-bold text-white">0%</span>
+                            </div>
+                            <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden">
+                                <div id="htaBar" class="bg-red-500 h-full transition-all duration-300" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-400">احتمالية الإصابة بمرض السكري (النوع الثاني)</span>
+                                <span id="diabetePct" class="font-bold text-white">0%</span>
+                            </div>
+                            <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden">
+                                <div id="diabeteBar" class="bg-red-500 h-full transition-all duration-300" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="correctionBox" class="mb-6 bg-blue-950/40 border border-blue-900 p-4 rounded-lg hidden">
+                        <span class="text-xs uppercase tracking-wider text-blue-400 block mb-1 font-bold">⚡ تحسين خوارزمي مخصص</span>
+                        <p id="correctionText" class="text-sm text-gray-200 italic"></p>
+                    </div>
+
+                    <div class="border-t border-gray-800 pt-4">
+                        <span class="text-xs text-gray-400 uppercase font-semibold block mb-1">النمط النظري الأقرب :</span>
+                        <p id="nearestProfil" class="text-sm font-medium text-blue-400">جاري الحساب...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const profilsTypes = [
+            {id:1, nom:"النقاء المطلق / النمط الأصيل", valeurs:{E:0,P:0,O:0,L:0,Y:0,S:0,T:0,A:0,H:6}},
+            {id:2, nom:"نمط مدني قياسي معرض للاعتداء", valeurs:{E:1.5,P:200,O:2,L:0.5,Y:2,S:1,T:0,A:1,H:2}},
+            {id:3, nom:"إنذار أيضي حاد وخطر متقدم", valeurs:{E:3,P:500,O:4,L:1,Y:4,S:1,T:20,A:4,H:0}}
+        ];
+
+        const scoresTheoriques = [-600.0, 480.0, 950.0];
+        const presetsContainer = document.getElementById('presetsContainer');
+
+        profilsTypes.forEach(p => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'text-right text-xs bg-gray-950 hover:bg-gray-800 border border-gray-800 p-2 rounded transition-all truncate w-full block';
+            button.innerHTML = `<span class="text-blue-400 font-mono font-bold ml-1">#${p.id}</span> ${p.nom}`;
+            button.addEventListener('click', () => appliquerPreset(p.valeurs));
+            presetsContainer.appendChild(button);
+        });
+
+        function appliquerPreset(valeurs) {
+            document.getElementById('input_E').value = valeurs.E;
+            document.getElementById('input_P').value = valeurs.P;
+            document.getElementById('input_O').value = valeurs.O;
+            document.getElementById('input_L').value = valeurs.L;
+            document.getElementById('input_Y').value = valeurs.Y;
+            document.getElementById('input_S').value = valeurs.S;
+            document.getElementById('input_T').value = valeurs.T;
+            document.getElementById('input_A').value = valeurs.A;
+            document.getElementById('input_H').value = valeurs.H;
+            calculerMatrice();
+        }
+
+        function calculerMatrice() {
+            const E = parseFloat(document.getElementById('input_E').value) || 0;
+            const P = parseFloat(document.getElementById('input_P').value) || 0;
+            const O = parseFloat(document.getElementById('input_O').value) || 0;
+            const L = parseFloat(document.getElementById('input_L').value) || 0;
+            const Y = parseFloat(document.getElementById('input_Y').value) || 0;
+            const S = parseFloat(document.getElementById('input_S').value) || 0;
+            const T = parseFloat(document.getElementById('input_T').value) || 0;
+            const A = parseFloat(document.getElementById('input_A').value) || 0;
+            const H = parseFloat(document.getElementById('input_H').value) || 0;
+
+            const cuilleresEffectives = H > 6 ? 6 : H;
+            const impactHuile = cuilleresEffectives * 100;
+
+            const scoreIAE = (E * 110) + (P * 0.73) + (O * 40) + (L * 250) + (Y * 73) + (S * 150) + (T * 15) + (A * 85) - impactHuile;
+
+            document.getElementById('scoreDisplay').innerText = scoreIAE.toFixed(1);
+
+            let hta = scoreIAE / 6;
+            let diabete = scoreIAE / 5;
+            let htaStr, diabeteStr, htaPctBar, diabetePctBar;
+
+            if (scoreIAE <= 0) {
+                htaStr = "< 5 %"; diabeteStr = "< 5 %"; htaPctBar = 4; diabetePctBar = 4;
+            } else {
+                if (hta > 95) hta = 95;
+                if (diabete > 98) diabete = 98;
+                htaStr = hta.toFixed(1) + " %";
+                diabeteStr = diabete.toFixed(1) + " %";
+                htaPctBar = hta;
+                diabetePctBar = diabete;
+            }
+
+            document.getElementById('htaPct').innerText = htaStr;
+            document.getElementById('diabetePct').innerText = diabeteStr;
+            document.getElementById('htaBar').style.width = htaPctBar + "%";
+            document.getElementById('diabeteBar').style.width = diabetePctBar + "%";
+
+            const correctionBox = document.getElementById('correctionBox');
+            const correctionText = document.getElementById('correctionText');
+
+            if (scoreIAE > 0) {
+                const agresseurs = [
+                    { label: "المياه المعبأة في البلاستيك", impact: E * 110 },
+                    { label: "الدجاج الصناعي", impact: P * 0.73 },
+                    { label: "بيض البطاريات", impact: O * 40 },
+                    { label: "الحليب الصناعي", impact: L * 250 },
+                    { label: "الزبادي الصناعي", impact: Y * 73 },
+                    { label: "السكر والخبز الأبيض", impact: S * 150 },
+                    { label: "التبغ والسجائر", impact: T * 15 },
+                    { label: "الكحول / الوجبات السريعة", impact: A * 85 }
+                ];
+
+                let pireAgresseur = agresseurs.reduce((max, curr) => curr.impact > max.impact ? curr : max, agresseurs[0]);
+
+                if (pireAgresseur.impact > 0) {
+                    let diminutionHta = pireAgresseur.impact / 6;
+                    let diminutionDiabete = pireAgresseur.impact / 5;
+
+                    correctionText.innerHTML = `إذا قمت بالقضاء أولاً على <span class='text-red-400 font-bold'>${pireAgresseur.label}</span> (المعتدي الرئيسي الحالي)، فسوف تقلل فورًا من خطر الإصابة بالسكري بنسبة <span class='text-green-400 font-bold'>${diminutionDiabete.toFixed(1)}%</span> وضغط الدم بنسبة <span class='text-green-400 font-bold'>${diminutionHta.toFixed(1)}%</span>.`;
+                    correctionBox.classList.remove('hidden');
+                } else {
+                    correctionBox.classList.add('hidden');
+                }
+            } else {
+                correctionBox.classList.add('hidden');
+            }
+
+            const zoneBox = document.getElementById('zoneBox');
+            const zoneDesc = document.getElementById('zoneDescription');
+            zoneBox.className = "p-4 rounded-lg mb-6 transition-all duration-300 ";
+
+            if (scoreIAE <= 0) {
+                zoneBox.classList.add('zone-immunite');
+                zoneDesc.innerHTML = "<strong class='text-green-400'>حصانة أيضية مطلقة</strong> : مخاطر شبه منعدمة. نمط أصيل نقي.";
+            } else if (scoreIAE > 0 && scoreIAE <= 150) {
+                zoneBox.classList.add('zone-modere');
+                zoneDesc.innerHTML = "<strong class='text-blue-400'>منطقة مخاطر معتدلة</strong> : اعتداءات بيئية طفيفة تحت السيطرة.";
+            } else if (scoreIAE > 150 && scoreIAE <= 300) {
+                zoneBox.classList.add('zone-alerte');
+                zoneDesc.innerHTML = "<strong class='text-yellow-500'>منطقة إنذار وتحذير</strong> : التهابات جهازية في حالة تقدم.";
+            } else {
+                zoneBox.classList.add('zone-naufrage');
+                zoneDesc.innerHTML = "<strong class='text-red-500'>انهيار بيولوجي حاد</strong> : تم تجاوز العتبة الحرجة. مخاطر مرضية وشيكة.";
+            }
+
+            let plusProcheIndex = 0;
+            let minDiff = Math.abs(scoreIAE - scoresTheoriques[0]);
+
+            for (let i = 1; i < scoresTheoriques.length; i++) {
+                let diff = Math.abs(scoreIAE - scoresTheoriques[i]);
+                if (diff < minDiff) {
+                    minDiff = diff;
+                    plusProcheIndex = i;
+                }
+            }
+
+            document.getElementById('nearestProfil').innerText = `الفرضية : ${profilsTypes[plusProcheIndex].nom}`;
+        }
+
+        document.querySelectorAll('#iaeForm input, #iaeForm select').forEach(element => {
+            element.addEventListener('input', calculerMatrice);
+            element.addEventListener('change', calculerMatrice);
+        });
+
+        window.addEventListener('DOMContentLoaded', () => {
+            calculerMatrice();
+        });
+    </script>
+</body>
+</html>
